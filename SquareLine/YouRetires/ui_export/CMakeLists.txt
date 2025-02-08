@@ -1,0 +1,10 @@
+SET(SOURCES ui_MainScreen.c
+    ui_RetirementAdjustScreen.c
+    ui.c
+    ui_comp_hook.c
+    ui_helpers.c
+    ui_events.c
+    ui_img_bluehexbg_png.c
+    fonts/ui_font_MontserratMedium60.c)
+
+add_library(ui ${SOURCES})
