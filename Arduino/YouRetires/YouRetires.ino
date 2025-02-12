@@ -12,7 +12,10 @@
 // DESCRIPTION:   Displays retirement date countdown information
 //
 // UPDATED:       02.08.2025  Bobot   Initial release
-//				
+//                02.12.2025  Bobot   Add seconds to time difference calc
+//                                    to fix variance in raw work days;
+//                                    Highlight current date on first launch
+//                                    of retirement date adjustment calendar
 //============================================================================
 
 #include <Arduino.h>
@@ -215,10 +218,10 @@ unsigned int CalculateDaysBetweenDates(int pStartYear, int pStartMonth, int pSta
   time_t StartDateTime;
   time_t EndDateTime;
 
-  double timediff = CalculateTimeDiff(pStartYear, pStartMonth, pStartDay, 0, 0,
-                                      pEndYear, pEndMonth, pEndDay, 0, 0,
+  double timediff = CalculateTimeDiff(pStartYear, pStartMonth, pStartDay, 0, 0, 0,
+                                      pEndYear, pEndMonth, pEndDay, 0, 0, 0,
                                       StartDateTime, EndDateTime);
-  unsigned int totaldays = (timediff / SECS_PER_DAY) + 1;
+  unsigned int totaldays = round(timediff / SECS_PER_DAY);
 
   Serial.print("1-Days to Go--->");
   Serial.println(totaldays);
@@ -276,8 +279,8 @@ unsigned int CalculateDaysBetweenDates(int pStartYear, int pStartMonth, int pSta
 
 
 // Helper function to calculate and return time difference between start date and end date
-double CalculateTimeDiff(int pStartYear, int pStartMonth, int pStartDay, int pStartHour, int pStartMinute, 
-                        int pEndYear, int pEndMonth, int pEndDay, int pEndHour, int pEndMinute,
+double CalculateTimeDiff(int pStartYear, int pStartMonth, int pStartDay, int pStartHour, int pStartMinute, int pStartSecond,
+                        int pEndYear, int pEndMonth, int pEndDay, int pEndHour, int pEndMinute, int pEndSecond,
                         time_t &pStartDateTime, time_t &pEndDateTime)
 {
   tmElements_t StartDate;
@@ -288,6 +291,7 @@ double CalculateTimeDiff(int pStartYear, int pStartMonth, int pStartDay, int pSt
   StartDate.Day = pStartDay;
   StartDate.Hour = pStartHour;
   StartDate.Minute = pStartMinute;
+  StartDate.Second = pStartSecond;
   Serial.print("StartDate.Year->");
   Serial.println(StartDate.Year);
   Serial.print("StartDate.Month->");
@@ -300,6 +304,7 @@ double CalculateTimeDiff(int pStartYear, int pStartMonth, int pStartDay, int pSt
   EndDate.Day = pEndDay;
   EndDate.Hour = pEndHour;
   EndDate.Minute = pEndMinute;
+  EndDate.Second = pEndSecond;  
   Serial.print("EndDate.Year->");
   Serial.println(EndDate.Year);
   Serial.print("EndDate.Month->");
@@ -579,8 +584,8 @@ void loop()
   {
     time_t StartDateTime;   // must be supplied as call by ref variable to function call but not used
     time_t EndDateTime;     // must be supplied as call by ref variable to function call but not used
-    double timediff = CalculateTimeDiff(gtimeinfo.tm_year+1900, gtimeinfo.tm_mon+1, gtimeinfo.tm_mday, gtimeinfo.tm_hour, gtimeinfo.tm_min,
-                                        calendardate.year, calendardate.month, calendardate.day, 0, 0,
+    double timediff = CalculateTimeDiff(gtimeinfo.tm_year+1900, gtimeinfo.tm_mon+1, gtimeinfo.tm_mday, gtimeinfo.tm_hour, gtimeinfo.tm_min, 0,
+                                        calendardate.year, calendardate.month, calendardate.day, 0, 0, 0,
                                         StartDateTime, EndDateTime);
 
     if (timediff > 0)
@@ -609,6 +614,8 @@ void loop()
         DisplayCurrentTime();
         DisplayRemainingRawDays();
         DisplayRemainingYMD();
+        lv_calendar_set_today_date(ui_RetirementCalendar, gtimeinfo.tm_year+1900, gtimeinfo.tm_mon+1, gtimeinfo.tm_mday);
+        lv_calendar_set_showed_date(ui_RetirementCalendar, gtimeinfo.tm_year+1900, gtimeinfo.tm_mon+1);
         gblnFirstRun2 = false;
       }
   }

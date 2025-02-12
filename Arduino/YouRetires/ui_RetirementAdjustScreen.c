@@ -31,9 +31,7 @@ void ui_RetirementAdjustScreen_screen_init(void)
     lv_obj_set_style_text_font(ui_lblRetirementAdjust, &lv_font_montserrat_28, LV_PART_MAIN | LV_STATE_DEFAULT);
 
     ui_RetirementCalendar = lv_calendar_create(ui_RetirementAdjustPanel);
-    lv_calendar_set_today_date(ui_RetirementCalendar, 2025, 1, 1);
-    lv_calendar_set_showed_date(ui_RetirementCalendar, 2025, 1);
-    
+
     lv_obj_t * ui_RetirementCalendar_header = lv_calendar_header_arrow_create(ui_RetirementCalendar);
     lv_calendar_header_dropdown_create(ui_RetirementCalendar);
     lv_obj_set_width(ui_RetirementCalendar, 685);
