@@ -22,12 +22,13 @@ Type esp32 in search box  and select  esp32 by Espressif System  version  3.1.2
 
 <img width="1278" height="723" alt="Screenshot 2026-05-05 071651" src="https://github.com/user-attachments/assets/777ee3be-b6ac-4d59-b086-a3ba9af7c170" />
 
+From Tools then  boards select  ESP32 S3 Dev Module  and use these settings
+
+<img width="1151" height="836" alt="image" src="https://github.com/user-attachments/assets/a650a803-a5ec-4a3c-9d6e-58361e0dbd75" />
+
+
 
 <img width="1268" height="852" alt="image" src="https://github.com/user-attachments/assets/ece52b87-619a-4e90-871c-23b70f3dbc62" />
-
-
-
-
 
 
 Library Files
