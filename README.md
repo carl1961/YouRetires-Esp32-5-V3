@@ -7,9 +7,7 @@ Arduino IDE 2.3.4   https://github.com/arduino/arduino-ide/releases/download/2.3
 
 <img width="1270" height="717" alt="Screenshot 2026-05-05 071524" src="https://github.com/user-attachments/assets/2e666145-dd78-405b-bdba-735710e15200" />
 
-Esp32 Board 3.1.2         https://github.com/espressif/arduino-esp32/releases/download/3.1.2/esp32-3.1.2.zip
-
-Copy these links to prefrecse settings  https://espressif.github.io/arduino-esp32/package_esp32_index.json
+Esp32 Board 3.1.2        
 
 <img width="1278" height="723" alt="Screenshot 2026-05-05 071651" src="https://github.com/user-attachments/assets/777ee3be-b6ac-4d59-b086-a3ba9af7c170" />
 
@@ -18,6 +16,7 @@ Copy these links to prefrecse settings  https://espressif.github.io/arduino-esp3
 
 
 Copy these links to Preferences settings  https://espressif.github.io/arduino-esp32/package_esp32_index.json
+
 
 <img width="1267" height="716" alt="image" src="https://github.com/user-attachments/assets/4321e2d5-3d08-4514-9acd-dd69eeabf44e" />
 
