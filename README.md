@@ -9,16 +9,24 @@ Arduino IDE 2.3.4   https://github.com/arduino/arduino-ide/releases/download/2.3
 
 Esp32 Board 3.1.2        
 
+Copy these links to Preferences settings  https://espressif.github.io/arduino-esp32/package_esp32_index.json
+
+
+<img width="1267" height="716" alt="image" src="https://github.com/user-attachments/assets/4321e2d5-3d08-4514-9acd-dd69eeabf44e" />
+
+Type esp32 in search box  and select  esp32 by Espressif System  version  3.1.2
+
+<img width="1286" height="845" alt="image" src="https://github.com/user-attachments/assets/f91dfd10-b520-49fe-916b-31f3814fd0d8" />
+
+
+
 <img width="1278" height="723" alt="Screenshot 2026-05-05 071651" src="https://github.com/user-attachments/assets/777ee3be-b6ac-4d59-b086-a3ba9af7c170" />
 
 
 <img width="1268" height="852" alt="image" src="https://github.com/user-attachments/assets/ece52b87-619a-4e90-871c-23b70f3dbc62" />
 
 
-Copy these links to Preferences settings  https://espressif.github.io/arduino-esp32/package_esp32_index.json
 
-
-<img width="1267" height="716" alt="image" src="https://github.com/user-attachments/assets/4321e2d5-3d08-4514-9acd-dd69eeabf44e" />
 
 
 
